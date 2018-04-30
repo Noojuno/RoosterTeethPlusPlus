@@ -10,8 +10,6 @@ var webpack = require("webpack"),
 // load the secrets
 var alias = {};
 
-var secretsPath = path.join(__dirname, "secrets." + env.NODE_ENV + ".js");
-
 var fileExtensions = [
   "jpg",
   "jpeg",
@@ -24,10 +22,6 @@ var fileExtensions = [
   "woff",
   "woff2"
 ];
-
-if (fileSystem.existsSync(secretsPath)) {
-  alias["secrets"] = secretsPath;
-}
 
 var options = {
   entry: {

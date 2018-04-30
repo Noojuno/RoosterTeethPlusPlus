@@ -5,6 +5,15 @@ import settingsPage from "./settings.html";
 
 export const SETTINGS_PREFIX = "RTPP_";
 
+const settingKeys = [
+  { key: "playerStyles", default: "true" },
+  { key: "seasonRemove", default: "true" },
+  { key: "shrinkStore", default: "true" },
+  { key: "mp3Download", default: "true" },
+  { key: "expandChannels", default: "false" },
+  { key: "linkDump", default: "true" }
+];
+
 function addSettingsTab() {
   let tabHtml = `<li class="settings__tab tab" id="tab_rtpp">
     <a href="#settings-rtpp">Rooster Teeth++</a>
@@ -16,14 +25,6 @@ function addSettingsTab() {
 }
 
 function getSettings() {
-  const settingKeys = [
-    { key: "playerStyles", default: "true" },
-    { key: "seasonRemove", default: "true" },
-    { key: "shrinkStore", default: "true" },
-    { key: "mp3Download", default: "true" },
-    { key: "expandChannels", default: "false" }
-  ];
-
   for (const key of settingKeys) {
     const element = $("#" + key.key)[0];
     const storageKey = `${SETTINGS_PREFIX}${key.key}`;
@@ -41,19 +42,39 @@ function getSettings() {
   }
 }
 
+function getDefault(key) {
+  for (const setting of settingKeys) {
+    if (setting.key == key) {
+      return parseBool(setting.default);
+    }
+  }
+
+  return false;
+}
+
 export function getSetting(key) {
   const storageKey = `${SETTINGS_PREFIX}${key}`;
+  const localSetting = localStorage.getItem(storageKey);
+  let setting;
 
-  return parseBool(localStorage.getItem(storageKey));
+  if (localSetting == null) {
+    setting = getDefault(key);
+  } else {
+    setting = localSetting;
+  }
+
+  return parseBool(setting);
 }
 
 function parseBool(boolToParse) {
   return JSON.parse(boolToParse);
 }
 
-const initSettings = ready(".settings-app", element => {
-  addSettingsTab();
-  getSettings();
-});
+const initSettings = () => {
+  document.addEventListener("RTPP_settings", element => {
+    addSettingsTab();
+    getSettings();
+  });
+};
 
 export default initSettings;

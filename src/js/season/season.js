@@ -41,19 +41,23 @@ function replaceCardTitles() {
   }
 }
 
-export default ready(".home-container", () => {
-  if (getSetting("seasonRemove")) {
-    var elements = document.getElementsByClassName("shift");
-    for (var i = 0, len = elements.length; i < len; i++) {
-      elements[i].onclick = replaceCardTitles;
+const initSeason = () => {
+  console.log("[RT++]", "Seasons enabled");
+  document.addEventListener("RTPP_home", () => {
+    console.log("aaaaaaaaaaaaaaa");
+
+    if (getSetting("seasonRemove")) {
+      var elements = document.getElementsByClassName("shift");
+      for (var i = 0, len = elements.length; i < len; i++) {
+        elements[i].onclick = replaceCardTitles;
+      }
+
+      document.addEventListener("RTPP_title", () => {
+        replaceCardTitles();
+        replaceAllTitles("featured-title");
+      });
     }
+  });
+};
 
-    ready(".episode-title", () => {
-      replaceCardTitles();
-    });
-
-    ready(".featured-title", () => {
-      replaceAllTitles("featured-title");
-    });
-  }
-});
+export default initSeason;

@@ -1,0 +1,23 @@
+#linkDump {
+  border: none !important;
+}
+
+#linkDump .collection-item {
+  color: white !important;
+  background-color: #1d1d1d !important;
+  border-bottom-color: #101010 !important;
+}
+
+#linkDump .collection-item:hover {
+  background: #c9373f;
+  background: -webkit-linear-gradient(left, #c9373f, #930f5b);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#c9373f),
+    to(#930f5b)
+  );
+  background: -o-linear-gradient(left, #c9373f 0, #930f5b 100%);
+  background: linear-gradient(90deg, #c9373f 0, #930f5b);
+}

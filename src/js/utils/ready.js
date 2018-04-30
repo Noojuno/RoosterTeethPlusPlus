@@ -12,7 +12,7 @@ export default function ready(selector, fn) {
   if (!observer) {
     // Watch for changes in the document
     observer = new MutationObserver(check);
-    observer.observe(document.getElementById("root"), {
+    observer.observe(document.getElementsByClassName("app-page")[0], {
       childList: true,
       subtree: true
     });
