@@ -1,0 +1,134 @@
+.video-js .vjs-playback-rate,
+.vjs-default-skin .vjs-big-play-button {
+  display: none;
+}
+
+.video-js {
+  font-size: 10px;
+  color: #fff;
+}
+
+.video-js .vjs-big-play-button,
+.video-js .vjs-control-bar {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6) 0,
+    rgba(0, 0, 0, 0.35) 60%,
+    transparent
+  );
+}
+
+.video-js .vjs-slider {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.video-js .vjs-control-bar {
+  height: 4em;
+}
+
+.video-js .vjs-fullscreen-control,
+.video-js .vjs-resolution-button {
+  position: absolute;
+  right: 0;
+}
+
+.video-js .vjs-resolution-button {
+  right: 4em;
+}
+
+.video-js .vjs-progress-control,
+.video-js .vjs-progress-control:hover {
+  position: absolute;
+  bottom: calc(4em - 2.5px);
+  left: 0;
+  width: 100%;
+  height: 15px;
+}
+
+.video-js .vjs-play-progress {
+  background: #c9373f;
+  background: linear-gradient(90deg, #c9373f 0, #930f5b);
+}
+
+.video-js .vjs-load-progress {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.video-js .vjs-control:before,
+.vjs-button > .vjs-icon-placeholder:before,
+.vjs-resolution-button .vjs-icon-placeholder:before {
+  line-height: 2em;
+  font-size: 2em;
+}
+
+.vjs-playback-rate .vjs-playback-rate-value {
+  line-height: 2.5em;
+}
+
+.video-js .vjs-time-control {
+  line-height: 3.25em;
+  font-size: 1.25em;
+}
+
+.video-js .vjs-load-progress div {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.video-js .vjs-progress-control:hover .vjs-progress-holder {
+  font-size: 1.5em;
+}
+
+.video-js .vjs-menu .vjs-menu-content {
+  background: 0 0;
+  padding-bottom: 2.5em;
+}
+
+.video-js .vjs-volume-vertical {
+  background: rgba(0, 0, 0, 0.2);
+  bottom: 9.5em;
+}
+
+.video-js .vjs-volume-level {
+  background: #fff !important;
+}
+
+.video-js .vjs-menu .vjs-menu-content .vjs-menu-item,
+.video-js .vjs-overlay-background {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.video-js .vjs-menu .vjs-menu-content .vjs-menu-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.video-js .vjs-current-time {
+  padding-right: 0;
+}
+
+.video-js .vjs-duration {
+  padding-left: 0;
+}
+
+.vjs-volume-bar.vjs-slider-horizontal {
+  margin: 1.8em 0.45em;
+  width: 100%;
+}
+
+.video-js .vjs-control.vjs-chromecast-button {
+  right: 7em;
+  position: absolute;
+}
+
+.video-js button:hover {
+  color: #f73c45 !important;
+}
+
+/* ENHANCED RT FIX */
+.vjs-control-bar .icon-expand {
+  position: absolute;
+  top: 10px;
+  right: 7.5em;
+}

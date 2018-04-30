@@ -1,0 +1,5 @@
+@media screen and (min-width: 1580px) {
+  .rt-carousel.merch .card-container {
+    width: 11% !important;
+  }
+}
