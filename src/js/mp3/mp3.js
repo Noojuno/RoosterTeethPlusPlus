@@ -12,7 +12,7 @@ function addButton(url, feedUrl) {
                     Download as MP3
                 </a>
                 &nbsp;
-              <a class="btn waves-effect waves-light secondary" href="${feedUrl}" target="_blank"   >
+              <a class="btn waves-effect waves-light secondary" style="float: right" href="${feedUrl}" target="_blank"   >
                 <i class="icon-rss left"></i>
                 RSS
             </a>
@@ -29,7 +29,7 @@ function addButton(url, feedUrl) {
     row.append($(`<div id="dumpCol" class="col s4"></div>`)[0]);
   }
 
-  $("#dumpCol").prepend(buttonHtml);
+  $("#dumpCol").append(buttonHtml);
 }
 
 let fetching = false;

@@ -3,6 +3,10 @@ import episodeMap from "./map.json";
 import addCss from "../utils/css";
 import dumpCss from "./dump.css";
 
+import linkDumpHtml from "./dump.html";
+
+import M from "materialize-css";
+
 import $ from "domtastic";
 
 const HEADERS = {
@@ -24,10 +28,9 @@ const drawLinkDump = links => {
       row.append($(`<div id="dumpCol" class="col s4"></div>`)[0]);
     }
 
-    $("#dumpCol").append($(`<span class="show-title">Link Dump</span>`)[0]);
-    $("#dumpCol").append(
-      $(`<div id="linkDump" class="collection dark"></div>`)[0]
-    );
+    $("#dumpCol").append($(linkDumpHtml)[0]);
+
+    M.Collapsible.init(document.querySelector("#dumpCollapse"));
 
     for (const link of links) {
       const url = link.content.link;

@@ -31,6 +31,9 @@ const initEvents = () => {
 
   /* Main Event (used for adding CSS) */
   readyEvent(".app-page", "main");
+
+  /* Show Event */
+  readyEvent(".show-container", "show");
 };
 
 export default initEvents;
