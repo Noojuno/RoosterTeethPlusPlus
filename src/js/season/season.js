@@ -41,23 +41,26 @@ function replaceCardTitles() {
   }
 }
 
-const initSeason = () => {
-  console.log("[RT++]", "Seasons enabled");
-  document.addEventListener("RTPP_home", () => {
-    console.log("aaaaaaaaaaaaaaa");
+const seasonReplace = () => {
+  //console.log("aaaaaaaaaaaaaaa");
 
-    if (getSetting("seasonRemove")) {
-      var elements = document.getElementsByClassName("shift");
-      for (var i = 0, len = elements.length; i < len; i++) {
-        elements[i].onclick = replaceCardTitles;
-      }
-
-      document.addEventListener("RTPP_title", () => {
-        replaceCardTitles();
-        replaceAllTitles("featured-title");
-      });
+  if (getSetting("seasonRemove")) {
+    var elements = document.getElementsByClassName("shift");
+    for (var i = 0, len = elements.length; i < len; i++) {
+      elements[i].onclick = replaceCardTitles;
     }
-  });
+
+    document.addEventListener("RTPP_title", () => {
+      replaceCardTitles();
+      replaceAllTitles("featured-title");
+    });
+  }
+};
+
+const initSeason = () => {
+  //console.log("[RT++]", "Seasons enabled");
+  document.addEventListener("RTPP_home", seasonReplace);
+  document.addEventListener("RTPP_show", seasonReplace);
 };
 
 export default initSeason;
