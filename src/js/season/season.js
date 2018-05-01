@@ -1,5 +1,6 @@
 import ready from "../utils/ready";
 import { getSetting } from "../settings/settings";
+import $ from "domtastic";
 
 function replaceTitle(titleElement) {
   var title = titleElement.textContent;
@@ -20,7 +21,10 @@ function replaceAllTitles(selector) {
     var titles = document.getElementsByClassName(selector);
 
     for (var i = 0; i < titles.length; i++) {
-      replaceTitle(titles.item(i));
+      let t = replaceTitle(titles.item(i));
+      if (selector == "featured-title" && t.season) {
+        $(titles.item(i)).after(`<p class="featured-caption">${t.season}</p>`);
+      }
     }
   }
 }
