@@ -94,13 +94,13 @@
                     </div>
                 </li>
                 <li class="form-list__row">
-                    <span class="form-list__label">Enable Carousel Removal</span>
+                    <span class="form-list__label">Show Newest Season</span>
                     <div class="form-list__items">
                         <div class="form-list__item">
                             <form>
                                 <div class="form-list__switch switch">
                                     <label>
-                                        <input id="linkDump" name="linkDump" type="checkbox">
+                                        <input id="showNewestSeason" name="showNewestSeason" type="checkbox">
                                         <span class="lever"></span>
                                     </label>
                                 </div>
@@ -109,15 +109,24 @@
                     </div>
                 </li>
                 <li class="form-list__row">
-                    <span class="form-list__label">Enable Link Dump on Older Content</span>
+                    <span class="form-list__label">Show Newest Episode First</span>
                     <div class="form-list__items">
                         <div class="form-list__item">
                             <form>
                                 <div class="form-list__switch switch">
-                                    <textarea />
+                                    <label>
+                                        <input id="reverseEpisodeOrder" name="reverseEpisodeOrder" type="checkbox">
+                                        <span class="lever"></span>
+                                    </label>
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </li>
+                <li class="form-list__row">
+                    <span class="form-list__label">Hide Carousels: </span>
+                    <div id="carouselHide" class="form-list__items">
+
                     </div>
                 </li>
             </ul>

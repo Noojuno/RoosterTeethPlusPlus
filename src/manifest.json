@@ -18,7 +18,7 @@
     {
       "exclude_globs": ["*://store.roosterteeth.com/*"],
       "include_globs": ["*"],
-      "js": ["rtpp.user.js"],
+      "js": ["injector.user.js"],
       "matches": ["*://*.roosterteeth.com/*"],
       "run_at": "document_end"
     }

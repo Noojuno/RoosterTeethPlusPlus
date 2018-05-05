@@ -1,5 +1,6 @@
 import ready from "../utils/ready";
 import $ from "domtastic";
+import M from "materialize-css";
 
 import settingsPage from "./settings.html";
 
@@ -12,8 +13,36 @@ const settingKeys = [
   { key: "mp3Download", default: "true" },
   { key: "expandChannels", default: "false" },
   { key: "linkDump", default: "true" },
-  { key: "carouselDisable_enable", default: "false" },
-  { key: "carouselDisable", default: "[]" }
+  { key: "carouselDisable", default: "[]" },
+  { key: "showNewestSeason", default: "true" },
+  { key: "reverseEpisodeOrder", default: "true" }
+];
+
+const carousels = [
+  "LIVESTREAMS",
+  "RECENT EPISODES",
+  "MY WATCHLIST",
+  "FEATURED MERCH",
+  "RECENT SERIES",
+  "ROOSTER TEETH SERIES",
+  "ACHIEVEMENT HUNTER SERIES",
+  "FUNHAUS SERIES",
+  "SCREWATTACK SERIES",
+  "COW CHOP SERIES",
+  "SUGAR PINE 7 SERIES",
+  "GAME ATTACK SERIES",
+  "THE KNOW SERIES",
+  "JT MUSIC SERIES",
+  "FIRST SERIES",
+  "FIRST EPISODES",
+  "ANIMATION",
+  "COMEDY",
+  "GAMING",
+  "BEHIND THE SCENES",
+  "TALK SHOWS",
+  "SCIENCE AND HOW-TO",
+  "FIRST MEMBER FAVORITES",
+  "TRENDING"
 ];
 
 function addSettingsTab() {
@@ -24,6 +53,43 @@ function addSettingsTab() {
   $(".settings__tabs__list").append($(tabHtml));
 
   $(".settings-app__content").append($(settingsPage));
+
+  setupCarousel();
+}
+
+function setupCarousel() {
+  let status = JSON.parse(localStorage.getItem("RTPP_carouselDisable")) || [];
+  for (const title of carousels) {
+    let titleId = "carousel_" + title.replace(/\ /g, "_");
+    $("#carouselHide").append(
+      $(`<div class="form-list__item">
+    <form>
+        <div class="form-list__switch switch">
+            <label>
+                <span style="color: black;">${title}</span>
+                <input id="${titleId}" name="carousel_livestreams" type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    </form>
+  </div>`)[0]
+    );
+
+    let checkbox = $("#" + titleId)[0];
+
+    if (status.indexOf(title) != -1) {
+      checkbox.checked = true;
+    }
+
+    checkbox.onclick = e => {
+      let disabled =
+        JSON.parse(localStorage.getItem("RTPP_carouselDisable")) || [];
+
+      disabled.push(title);
+
+      localStorage.setItem("RTPP_carouselDisable", JSON.stringify(disabled));
+    };
+  }
 }
 
 function getSettings() {
@@ -32,7 +98,7 @@ function getSettings() {
 
     const storageKey = `${SETTINGS_PREFIX}${key.key}`;
 
-    if (element.type == "checkbox") {
+    if (element && element.type == "checkbox") {
       if (localStorage.getItem(storageKey)) {
         element.checked = parseBool(localStorage.getItem(storageKey));
       } else {
