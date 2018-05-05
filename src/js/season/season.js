@@ -46,8 +46,6 @@ function replaceCardTitles() {
 }
 
 const seasonReplace = () => {
-  //console.log("aaaaaaaaaaaaaaa");
-
   if (getSetting("seasonRemove")) {
     var elements = document.getElementsByClassName("shift");
     for (var i = 0, len = elements.length; i < len; i++) {

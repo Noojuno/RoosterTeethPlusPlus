@@ -11,7 +11,9 @@ const settingKeys = [
   { key: "shrinkStore", default: "true" },
   { key: "mp3Download", default: "true" },
   { key: "expandChannels", default: "false" },
-  { key: "linkDump", default: "true" }
+  { key: "linkDump", default: "true" },
+  { key: "carouselDisable_enable", default: "false" },
+  { key: "carouselDisable", default: "[]" }
 ];
 
 function addSettingsTab() {
@@ -26,19 +28,25 @@ function addSettingsTab() {
 
 function getSettings() {
   for (const key of settingKeys) {
-    const element = $("#" + key.key)[0];
+    let element = $("#" + key.key)[0];
+
     const storageKey = `${SETTINGS_PREFIX}${key.key}`;
 
-    if (localStorage.getItem(storageKey)) {
-      element.checked = parseBool(localStorage.getItem(storageKey));
-    } else {
-      localStorage.setItem(storageKey, key.default);
-      element.checked = parseBool(key.default);
-    }
+    if (element.type == "checkbox") {
+      if (localStorage.getItem(storageKey)) {
+        element.checked = parseBool(localStorage.getItem(storageKey));
+      } else {
+        localStorage.setItem(storageKey, key.default);
+        element.checked = parseBool(key.default);
+      }
 
-    element.onchange = () => {
-      localStorage.setItem(storageKey, JSON.stringify(element.checked));
-    };
+      element.onchange = () => {
+        localStorage.setItem(storageKey, JSON.stringify(element.checked));
+      };
+    } else {
+      if (key.key == "carouselDisable") {
+      }
+    }
   }
 }
 

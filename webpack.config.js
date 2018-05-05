@@ -25,7 +25,8 @@ var fileExtensions = [
 
 var options = {
   entry: {
-    rtpp: path.join(__dirname, "src", "js", "main.js")
+    rtpp: path.join(__dirname, "src", "js", "main.js"),
+    injector: path.join(__dirname, "src", "js", "injector.js")
   },
   output: {
     path: path.join(__dirname, "build"),
