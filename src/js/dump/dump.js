@@ -1,5 +1,5 @@
 import { getSetting } from "../settings/settings";
-import episodeMap from "./map.json";
+import episodeMap from "./data.json";
 import addCss from "../utils/css";
 import dumpCss from "./dump.css";
 
