@@ -5,7 +5,8 @@ var webpack = require("webpack"),
   CleanWebpackPlugin = require("clean-webpack-plugin"),
   CopyWebpackPlugin = require("copy-webpack-plugin"),
   WriteFilePlugin = require("write-file-webpack-plugin"),
-  userscript = require("./utils/userscript");
+  userscript = require("./utils/userscript"),
+  UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 // load the secrets
 var alias = {};
@@ -75,6 +76,7 @@ var options = {
       }
     ]),
     new WriteFilePlugin(),
+    new UglifyJsPlugin(),
     new webpack.BannerPlugin({
       banner: userscript(process.env.npm_package_version),
       raw: true

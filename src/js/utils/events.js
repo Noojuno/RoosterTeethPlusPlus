@@ -20,7 +20,7 @@ const initEvents = () => {
   readyEvent(".episode-main", "episode");
 
   /* Settings Event */
-  readyEvent(".settings-app", "settings");
+  readyEvent(".settings-app__content", "settings");
 
   /* Home Event */
   readyEvent(".home-container", "home");

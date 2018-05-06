@@ -1,6 +1,5 @@
 import ready from "../utils/ready";
 import $ from "domtastic";
-import M from "materialize-css";
 
 import settingsPage from "./settings.html";
 

@@ -6,12 +6,9 @@ module.exports = version => {
 // @version      ${version}
 // @description  Improves the RT site
 // @author       @Noojuno
-// @match        http://*/*
-// @grant        none
-// @include      http://*.roosterteeth.com/*
-// @include      https://*.roosterteeth.com/*
-// @include      https://roosterteeth.com/*
-// @include      http://roosterteeth.com/*
+// @match        *://roosterteeth.com/*
+// @match        *://*.roosterteeth.com/*
+// @exclude      *://store.roosterteeth.com/*
 // @run-at       document-end
 // @noframes
 // ==/UserScript==

@@ -57,6 +57,10 @@ const initShow = () => {
   document.addEventListener("RTPP_show", e => {
     let seasonSet = false;
     ready(".episode-grid-container", e => {
+      if (document.location.pathname == "/episode/recently-added") {
+        return;
+      }
+
       e.parentNode.insertBefore($(loaderHtml)[0], e);
       e.style = "display: none;";
 

@@ -1,5 +1,6 @@
 import ready from "../utils/ready";
 import $ from "domtastic";
+import findReactComponent from "../utils/react";
 
 import convert from "xml-js";
 
@@ -32,12 +33,18 @@ function addButton(url, feedUrl) {
   $("#dumpCol").append(buttonHtml);
 }
 
+window.findReactComponent = findReactComponent;
+
 let fetching = false;
 const initMp3 = () => {
   document.addEventListener("RTPP_episode", element => {
     let episodeSlug = document.location.href.split("/")[4];
 
-    if (!getSetting("mp3Download") || fetching) {
+    if (
+      !getSetting("mp3Download") ||
+      fetching ||
+      document.location.pathname == "/episode/recently-added"
+    ) {
       return;
     }
 

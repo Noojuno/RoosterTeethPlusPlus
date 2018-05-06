@@ -4,8 +4,11 @@
 
 ### Version 1.3
 
+* Added option to show newest season of a series first
+* Added option to show newest episode of a season first
+* Added ability to disable carousels from the home page
 * Added link dump for videos that have link dump data associated
-* Moved MP3 download button to above the link dump
+* Moved MP3 download button to below the link dump
 * Added season and episode count to below the featured videos title
 * Made links in descriptions clickable
 
